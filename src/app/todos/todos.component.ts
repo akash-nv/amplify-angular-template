@@ -26,6 +26,8 @@ export class TodosComponent implements OnInit {
           this.todos = items;
         },
       });
+
+      console.log(client.models.Clinic.list());
     } catch (error) {
       console.error('error fetching todos', error);
     }

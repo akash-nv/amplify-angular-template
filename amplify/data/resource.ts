@@ -18,6 +18,29 @@ const schema = a.schema({
       complete: a.boolean()
     })
     .authorization((allow) => [allow.publicApiKey()]),
+    Clinic: a
+    .model({
+      id: a.id(),
+      name: a.string(),
+      address: a.string(),
+      province: a.string(),
+      country: a.string(),
+      city: a.string(),
+      postalCode: a.string(),
+      phone: a.phone(),
+      fax: a.phone(),
+      logo: a.json(),
+      owner: a.hasOne('Doctor', 'id'),
+      patients: a.hasMany('Patient','id'),
+      agreedToTermsOfService: a.boolean(),
+      clinicLinkedReferralCenterId: a.id(),
+      hasDryEyePortalAccess: a.boolean(),
+      createdAt: a.datetime(),
+      updatedAt: a.datetime(),
+    })
+    .authorization((allow) => [
+      allow.publicApiKey(),
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

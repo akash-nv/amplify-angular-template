@@ -30,8 +30,6 @@ const schema = a.schema({
       phone: a.phone(),
       fax: a.phone(),
       logo: a.json(),
-      owner: a.hasOne('Doctor', 'id'),
-      patients: a.hasMany('Patient','id'),
       agreedToTermsOfService: a.boolean(),
       clinicLinkedReferralCenterId: a.id(),
       hasDryEyePortalAccess: a.boolean(),
